@@ -11,9 +11,6 @@ const refs = {
   countryList : document.querySelector('.country-list'),
 };
 
-// const country_list = document.querySelector('.country-list');
-
-
 const clearMarkup = ref => (ref.innerHTML = '');
 
 const inputHandler = e => {
@@ -31,9 +28,7 @@ const inputHandler = e => {
       if (data.length > 10) {
         clearMarkup(refs.countryList);
         clearMarkup(refs.countryInfo);
-        Notify.info(
-          'Too many matches found. Please enter a more specific name'
-        );
+        Notify.info('Too many matches found. Please enter a more specific name');
         return;
       }
       renderMarkup(data);
@@ -41,7 +36,7 @@ const inputHandler = e => {
     .catch(err => {
       clearMarkup(refs.countryList);
       clearMarkup(refs.countryInfo);
-      Notify.failure('Oops..., there is no country with that name');
+      Notify.failure('Oops, there is no country with that name');
     });
 };
 
